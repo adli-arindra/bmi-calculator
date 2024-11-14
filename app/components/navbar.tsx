@@ -4,8 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 
 const Navbar: React.FC = () => {
-    let buttonStyle = "btn btn-primary text-white mx-1 rounded-full hover:btn-secondary hover:text-white transition duration-300";
-    const [page, setPage] = useState({});
+    const buttonStyle = "btn btn-primary text-white mx-1 rounded-full hover:btn-secondary hover:text-white transition duration-300";
+    // const [page, setPage] = useState({});
 
     return (
         <>

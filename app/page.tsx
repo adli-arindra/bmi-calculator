@@ -14,7 +14,7 @@ const Home = function () {
       <header className="text-center mb-8">
         <h1 className="text-4xl md:text-6xl font-bold text-primary">Welcome to BMI Calculator</h1>
         <p className="mt-4 text-lg md:text-xl text-primary-content">
-          We're glad you're here. Feel free to explore!
+          We&apos;re glad you&apos;re here. Feel free to explore!
         </p>
       </header>
 
