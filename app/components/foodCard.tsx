@@ -1,22 +1,24 @@
-
+import Image from 'next/image';
 
 const FoodCard = function () {
     return (
-        <div className="card bg-base-100 w-96 shadow-xl">
-            <figure>
-                <img
-                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+        <div className="card bg-base-100 shadow-xl max-w-min">
+            <figure className="pt-8">
+                <Image
+                src="/file.svg"
+                width={25}
+                height={25}
                 alt="Shoes" />
             </figure>
             <div className="card-body">
-                <h2 className="card-title">
-                    Shoes!
-                    <div className="badge badge-secondary">NEW</div>
+                <h2 className="card-title text-md">
+                    Chicken
+                    {/* <div className="badge badge-secondary">NEW</div> */}
                 </h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
+                <p className="text-sm">kukuruyuk</p>
                 <div className="card-actions justify-end">
-                    <div className="badge badge-outline">Fashion</div>
-                    <div className="badge badge-outline">Products</div>
+                    <div className="badge badge-outline text-sm">Cal +30</div>
+                    <div className="badge badge-outline text-sm">Kegeprek</div>
                 </div>
             </div>
         </div>

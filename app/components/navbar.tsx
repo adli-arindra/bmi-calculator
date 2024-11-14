@@ -6,7 +6,6 @@ import Save from "@/app/components/save";
 import Load from "@/app/components/load";
 
 const Navbar: React.FC = () => {
-    const buttonStyle = "btn btn-primary text-white mx-1 rounded-full hover:btn-secondary hover:text-white transition duration-300";
     // const [page, setPage] = useState({});
 
     return (
