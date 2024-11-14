@@ -2,23 +2,23 @@
 
 // import { useState } from "react";
 import Link from "next/link";
+import Save from "@/app/components/save";
+import Load from "@/app/components/load";
 
 const Navbar: React.FC = () => {
     const buttonStyle = "btn btn-primary text-white mx-1 rounded-full hover:btn-secondary hover:text-white transition duration-300";
     // const [page, setPage] = useState({});
 
     return (
-        <>
-            <div className="navbar bg-neutral fixed top-0 flex justify-between items-center">
-                <h1 className="text-xl font-bold mx-4">BMI Calculator</h1>
+        <div className="relative z-10 w-full">
+            <div className="navbar bg-neutral py-4 fixed top-0 w-full flex justify-between items-center">
+                <Link href="/" className="text-xl font-bold mx-4 hidden md:block">BMI Calculator</Link>
                 <div className="flex">
-                    <Link className={buttonStyle} href="" >Virtual Lab</Link>
-                    <Link className={buttonStyle} href="">Save State</Link>
-                    <Link className={buttonStyle} href="">Load State</Link>
-                
+                    <Save/>
+                    <Load/>
                 </div>
             </div>
-        </>
+        </div>
     )
 };
 
