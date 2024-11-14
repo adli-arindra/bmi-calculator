@@ -10,12 +10,12 @@ const Navbar: React.FC = () => {
 
     return (
         <div className="relative z-10 w-full">
-            <div className="navbar bg-neutral py-4 fixed top-0 w-full flex justify-between items-center">
-                <Link href="/" className="text-xl font-bold mx-4 hidden md:block">BMI Calculator</Link>
+            <div className="navbar bg-neutral py-4 fixed top-0 w-full flex justify-between flex-row-reverse items-center">
                 <div className="flex">
                     <Save/>
                     <Load/>
                 </div>
+                <Link href="/" className="text-xl font-bold mx-4 hidden md:block">BMI Calculator</Link>
             </div>
         </div>
     )
