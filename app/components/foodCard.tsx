@@ -7,14 +7,16 @@ const FoodCard = function ({ Name, Description, Calories, Type } : { Name: strin
     const selected = state.food === Name;
     const isTrue = "flex flex-col items-center justify-center gap-1 p-5 rounded-2xl bg-accent"
     const isFalse = "flex flex-col items-center justify-center gap-1 p-5 rounded-2xl bg-neutral"
-
+    const Path = "/food/" + Name + ".png";
+    console.log(Path);
+    
     return (
         <button className={selected ? isTrue : isFalse}
         onClick= {() => {
             state.setFood(Name);
             }} >
             <Image  
-                src="/file.svg"
+                src={Path}
                 width={50}
                 height={50}
                 alt="Shoes" 
