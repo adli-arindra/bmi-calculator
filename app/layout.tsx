@@ -20,11 +20,6 @@ export const metadata: Metadata = {
   description: "Made by Muhammad Adli Arindra 18222089",
 };
 
-type person = {
-  weight: number,
-  height: number
-}
-
 export default function RootLayout({
   children,
 }: Readonly<{
