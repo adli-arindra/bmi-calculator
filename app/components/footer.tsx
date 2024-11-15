@@ -11,7 +11,7 @@ const Footer = function () {
             </div>
             <div className="flex space-x-4 mt-4 sm:mt-0">
               <a href="https://github.com/adli-arindra/bmi-calculator" target="_blank" className="text-neutral-content hover:text-white">Github Repo</a>
-              <a href="#" className="text-neutral-content hover:text-white">Documentation</a>
+              <a href="https://docs.google.com/document/d/1D6-a2KjAm0fwotCY25UP6JsbeoJLA-BOxcb_KkgW3K0/edit?usp=sharing" className="text-neutral-content hover:text-white">Documentation</a>
               <a href="https://trich.id" target="_blank" className="text-neutral-content hover:text-white">A Superior Website</a>
             </div>
           </div>

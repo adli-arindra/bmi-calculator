@@ -8,7 +8,6 @@ const FoodCard = function ({ Name, Description, Calories, Type } : { Name: strin
     const isTrue = "flex flex-col items-center justify-center gap-1 p-5 rounded-2xl bg-accent"
     const isFalse = "flex flex-col items-center justify-center gap-1 p-5 rounded-2xl bg-neutral"
     const Path = "/food/" + Name + ".png";
-    console.log(Path);
     
     return (
         <button className={selected ? isTrue : isFalse}
