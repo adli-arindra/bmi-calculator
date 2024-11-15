@@ -43,7 +43,7 @@ const Person = function () {
                     else if (food === "Paper") v = -5;
                     else if (food === "Hammer") v = -10;
 
-                    let newPerson : person = {
+                    const newPerson : person = {
                         weight: currentPerson.weight + v,
                         height: currentPerson.height,
                         bmi: GetBMI(currentPerson.weight + v, currentPerson.height)

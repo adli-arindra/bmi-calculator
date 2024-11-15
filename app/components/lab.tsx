@@ -64,7 +64,7 @@ const Lab:React.FC = function () {
               <button className="btn btn-square" onClick={() => {
                 if (heightInput === undefined) heightInput = 175;
                 if (weightInput === undefined) weightInput = 65;
-                let newPerson:person = {
+                const newPerson:person = {
                   height: heightInput,
                   weight: weightInput,
                   bmi: GetBMI(weightInput, heightInput)
