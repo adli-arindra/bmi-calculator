@@ -3,6 +3,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
+import { auth } from "./auth";
+import { SessionProvider } from "next-auth/react";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -20,18 +22,21 @@ export const metadata: Metadata = {
   description: "Made by Muhammad Adli Arindra 18222089",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await auth();
 
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <Navbar/>
-        {children}
-        <Footer/>
+        <SessionProvider session={session}>
+          <Navbar/>
+          {children}
+          <Footer/>
+        </SessionProvider>
       </body>
     </html>
   );

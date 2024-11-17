@@ -5,13 +5,12 @@ export const AddData = async function(email:string, weight:number, height:number
     try {
       const docRef = await addDoc(collection(db, "users"), {
         email: email, 
-        name: name,
         weight: weight,
         height: height
       });
       console.log("Document written with ID: ", docRef.id);
     } catch (e) {
-      console.error("Error adding document: ", e);
+      console.log("Error adding document: ", e);
     }
 }
 

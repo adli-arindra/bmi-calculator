@@ -4,6 +4,8 @@ import FoodCard from "@/app/components/foodCard";
 import { useState } from 'react';
 import { foodContext, personContext } from '@/app/components/context';
 import Person, { GetBMI, person } from "@/app/components/person";
+import { GetBMISession, SetBMISession } from "../firestore/session";
+import { useSession } from "next-auth/react";
 
 const defaultPerson : person = {
   weight: 65,
@@ -31,11 +33,27 @@ const Lab:React.FC = function () {
   const [food, setFood] = useState("");
   const [currentPerson, setCurrentPerson] = useState<person>(defaultPerson);
   let weightInput : number, heightInput : number;
+  const session = useSession();
+  const email = session.data?.user?.email;
 
   return (
     <foodContext.Provider value={{ food, setFood }}>
       <div className="flex bg-green-200">
         <div className="w-1/2 bg-neutral rounded-3xl m-4 px-6 py-6 border-2 border-neutral border-solid">
+          <div className="flex justify-center items-center gap-4 mb-4">
+            <button className = "btn" onClick={async () => {
+              const data = await (GetBMISession(email as string));
+              const nweight = data?.weight as number;
+              const nheight = data?.height as number;
+              const newPerson:person = {
+                weight: nweight,
+                height: nheight,
+                bmi: GetBMI(nweight, nheight)
+              }
+              setCurrentPerson(newPerson);
+            }}>Download Data</button>
+            <button className = "btn" onClick={() => {SetBMISession(email as string, currentPerson.weight, currentPerson.height)}}>Upload Data</button>
+          </div>
           <h2 className="text-white text-2xl text-center font-bold">FOOD CHOICES</h2>
           <p className="text-neutral-content text-center text-sm mt-4">
             Makan apa hari ini ?
@@ -61,7 +79,7 @@ const Lab:React.FC = function () {
             <div className="flex flex-col justify-center py-4 max-w-sm gap-4 sm:flex-row pt-max">
               <input type="text" placeholder="Weight in kg" onChange={(e) => weightInput = parseInt(e.target.value)} className="input input-bordered w-full max-w-xs text-center" />
               <input type="text" placeholder="Height in cm" onChange={(e) => heightInput = parseInt(e.target.value)} className="input input-bordered w-full max-w-xs text-center" />
-              <button className="btn btn-square" onClick={() => {
+              <button className="btn btn-square" onClick={() => { 
                 if (heightInput === undefined) heightInput = 175;
                 if (weightInput === undefined) weightInput = 65;
                 const newPerson:person = {
@@ -69,7 +87,6 @@ const Lab:React.FC = function () {
                   weight: weightInput,
                   bmi: GetBMI(weightInput, heightInput)
                 }
-                console.log({heightInput, weightInput});
                 setCurrentPerson(newPerson);
               }}>Set</button>
             </div>

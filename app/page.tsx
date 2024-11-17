@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Lab from './components/lab';
 import Link from 'next/link';
-import LoadButton from './components/load';
 
 const Home = function () {
   return (
@@ -23,7 +22,6 @@ const Home = function () {
             We&apos;re glad you&apos;re here. Feel free to explore!
           </p>
         </header>
-        <LoadButton/>
         <Link href="#lab" className= "btn btn-primary text-white mx-1 rounded-full hover:btn-secondary hover:text-white  transition duration-300">
           Get Started
         </Link>

@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import { useContext } from 'react';
 import { foodContext, personContext } from '@/app/components/context';
-import { SetSession } from '../firestore/session';
 
 export interface person  {
     weight: number,
@@ -49,7 +48,6 @@ const Person = function () {
                         height: currentPerson.height,
                         bmi: GetBMI(currentPerson.weight + v, currentPerson.height)
                     }
-                    SetSession(currentPerson.weight + v, currentPerson.height);
                     setCurrentPerson(newPerson);
                     setFood("");
                 }}
