@@ -40,7 +40,7 @@ const Lab:React.FC = function () {
     <foodContext.Provider value={{ food, setFood }}>
       <div className="flex bg-green-200">
         <div className="w-1/2 bg-neutral rounded-3xl m-4 px-6 py-6 border-2 border-neutral border-solid">
-          <div className="flex justify-center items-center gap-4 mb-4">
+          <div className="flex justify-center items-center gap-4 mb-4 flex-col sm:flex-row">
             <button className = "btn" onClick={async () => {
               const data = await (GetBMISession(email as string));
               const nweight = data?.weight as number;
@@ -91,8 +91,12 @@ const Lab:React.FC = function () {
               }}>Set</button>
             </div>
               <progress className={GetColor(currentPerson)} value={currentPerson.bmi - 12} max="20"></progress>
-              <h2 className={GetTextColor(currentPerson)}>{currentPerson.bmi.toFixed(2)}</h2>
-          </div>
+              <h2 className={GetTextColor(currentPerson)}>BMI - {currentPerson.bmi.toFixed(2)}</h2>
+            </div>
+            <div className="flex justify-center items-center gap-4 mb-4 flex-col sm:flex-row">
+                <div className="btn font-bold">{currentPerson.weight} kg</div>
+                <div className="btn font-bold">{currentPerson.height} cm</div>
+            </div>
         </div>
       </div>
     </foodContext.Provider>
